@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+        name: jojjddbnamei
+spec:
+  template:
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 2000
+      volumes:
+      - name: shared-data
+        emptyDir: {}
+      initContainers:
+      - name: glass
+        image:  gcr.io/dhunav/static-site:PDF-with-javascript-pdf
+        securityContext:
+          runAsUser: 1000
+        volumeMounts:
+        - name: shared-data
+          mountPath: /output
+          # - name: set-dir-owner
+          #image:  busybox:1.29.2
+          #command: ['sh', '-c', "chown -R 1000:1000 /output"]
+          #volumeMounts:
+          # - name: shared-data
+          #mountPath: /output
+      restartPolicy: Never
+      containers:
+      - name: sidecar
+        image: gcr.io/dhunav/side-car@sha256:638aead2ef7bcf1bc469e06332cab32b50b4094dc11acdd0d2c9a046a0f6eb82
+        # command: ['sh', '-c', "ls /output"]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /output
+        securityContext:
+          runAsUser: 1000
+          allowPrivilegeEscalation: true

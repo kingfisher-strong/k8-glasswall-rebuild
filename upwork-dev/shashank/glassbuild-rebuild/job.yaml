@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+        name: jobname
+spec:
+  template:
+    spec:
+      securityContext:
+      volumes:
+      - name: shared-data
+        emptyDir: {}
+      initContainers:
+      - name: glass
+        image:  gcr.io/dhunav/static-site:latest
+        securityContext:
+          runAsUser: 1000
+        volumeMounts:
+        - name: shared-data
+          mountPath: /output
+          # - name: set-dir-owner
+          #image:  busybox:1.29.2
+          #command: ['sh', '-c', "chown -R 1000:1000 /output"]
+          #volumeMounts:
+          # - name: shared-data
+          #mountPath: /output
+      restartPolicy: Never
+      containers:
+      - name: sidecar
+        image: gcr.io/dhunav/side-car@sha256:a8dc2bc223cf5c119807914ce24fe9176ae0b29193fcc78e6f831b3508e2eea0
+        # command: ['sh', '-c', "ls /output"]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /output
+        
+
+        # TODO : change in github action as well

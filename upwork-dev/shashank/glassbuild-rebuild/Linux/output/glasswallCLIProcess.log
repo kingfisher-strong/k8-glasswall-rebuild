@@ -1,0 +1,92 @@
+gwFileConfigXML returned 1 
+*************************************************************
+Glasswall Command Line Initiator
+Platform: Linux
+Environment: 64 Bit
+Version: 0.4
+Notes: Supports process modes:
+   0 Analysis
+   1 ManageProtect
+   2 ManageProtectLite
+   3 ManageProtectReport (short form)
+   4 ExportMode
+   5 ImportMode
+   6 ArchiveAnalysis
+   7 ArchiveProtect
+   8 WordSearch
+
+Recognised values for fileStorageMode are:
+   0 file to file
+   1 file to memory
+   2 memory to memory
+
+fileToFileMode is deprecated and fileStorageMode should be used in preference.
+
+Use command line option -a to call API function GWGetAllIdInfo, -b for GWGetIdInfo, or -v for GWFileVersion
+   -a XMLOUTPUTFILE
+   -b ID_NUM TXTOUTPUTFILE
+   -v
+
+Also supports wildcarding of filetype (with *) and override of processMode, reportMode, fileToFileMode, fileType
+
+*************************************************************
+START LOGGING Sun Aug 23 13:07:13 2020
+
+SOFTWARE VERSION 1.99
+*************************************************************
+*************************************************************
+Process Settings
+*************************************************************
+*************************************************************
+<?xml version="1.0" encoding="utf-8"?>
+<config><pdfConfig><watermark>Glasswall Approved</watermark>
+<metadata>sanitise</metadata>
+<javascript>sanitise</javascript>
+<acroform>sanitise</acroform>
+<actions_all>sanitise</actions_all>
+<embedded_files>sanitise</embedded_files>
+<external_hyperlinks>sanitise</external_hyperlinks>
+<internal_hyperlinks>sanitise</internal_hyperlinks>
+<embedded_images>sanitise</embedded_images>
+<value_outside_reasonable_limits>allow</value_outside_reasonable_limits>
+<retain_exported_streams>allow</retain_exported_streams>
+</pdfConfig>
+<wordConfig><metadata>sanitise</metadata>
+<macros>sanitise</macros>
+<embedded_files>sanitise</embedded_files>
+<review_comments>sanitise</review_comments>
+<internal_hyperlinks>sanitise</internal_hyperlinks>
+<external_hyperlinks>sanitise</external_hyperlinks>
+<dynamic_data_exchange>sanitise</dynamic_data_exchange>
+<embedded_images>sanitise</embedded_images>
+</wordConfig>
+<pptConfig><metadata>sanitise</metadata>
+<macros>sanitise</macros>
+<embedded_files>sanitise</embedded_files>
+<review_comments>sanitise</review_comments>
+<internal_hyperlinks>sanitise</internal_hyperlinks>
+<external_hyperlinks>sanitise</external_hyperlinks>
+<embedded_images>sanitise</embedded_images>
+</pptConfig>
+<xlsConfig><metadata>sanitise</metadata>
+<macros>sanitise</macros>
+<embedded_files>sanitise</embedded_files>
+<internal_hyperlinks>sanitise</internal_hyperlinks>
+<external_hyperlinks>sanitise</external_hyperlinks>
+<review_comments>sanitise</review_comments>
+<dynamic_data_exchange>sanitise</dynamic_data_exchange>
+<embedded_images>sanitise</embedded_images>
+</xlsConfig>
+<tiffConfig><geotiff>sanitise</geotiff>
+</tiffConfig>
+</config>
+
+*************************************************************
+==00000== Found File /input/PDF_with_javascript.pdf		Passed
+
+*************************************************************
+STOPLOGGING Sun Aug 23 13:07:13 2020
+
+Duration  0hrs  0mins  0secs
+
+*************************************************************
